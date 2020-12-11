@@ -552,7 +552,9 @@ fn j2oas_schema_object(
             j2oas_integer(&obj.format, &obj.number, &obj.enum_values)
         }
         (None, Some(subschema)) => j2oas_subschemas(subschema),
-        (Some(schemars::schema::InstanceType::Object), Some(subschema)) => j2oas_subschemas(subschema),
+        (Some(schemars::schema::InstanceType::Object), Some(subschema)) => {
+            j2oas_subschemas(subschema)
+        }
         (None, None) => todo!("missed a valid case {:?}", obj),
         _ => panic!("invalid"),
     };
