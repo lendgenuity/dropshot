@@ -118,11 +118,11 @@ impl PathSegment {
         if segment.starts_with('{') || segment.ends_with('}') {
             assert!(
                 segment.starts_with('{'),
-                "HTTP URI path segment variable missing leading \"{\""
+                format!("{}", "HTTP URI path segment variable missing leading \"{\"")
             );
             assert!(
                 segment.ends_with('}'),
-                "HTTP URI path segment variable missing trailing \"}\""
+                format!("{}", "HTTP URI path segment variable missing trailing \"}\"")
             );
             assert!(
                 segment.len() > 2,
